@@ -3,24 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_film"
-    app:startDestination="@id/splashScreenFragment">
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.lordkajoc.challenge_chapter_lima.fragment.SplashScreenFragment"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
-        <action
-            android:id="@+id/action_splashScreenFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
-        <action
-            android:id="@+id/action_splashScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/homeFragment2"
         android:name="com.lordkajoc.challenge_chapter_lima.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.lordkajoc.challenge_chapter_lima.fragment.LoginFragment"
@@ -41,5 +33,17 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.lordkajoc.challenge_chapter_lima.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
 </navigation>

@@ -48,5 +48,12 @@ class HomeFragment : Fragment() {
         var getUser = sharedPreferences.getString("user", "")
         binding.textView.text = "Welcome, $getUser"
 
+        binding.ivIcprofile.setOnClickListener {
+            var addUser = sharedPreferences.edit()
+            addUser.putString("user", getUser)
+            addUser.apply()
+            findNavController().navigate(R.id.action_homeFragment2_to_profileFragment)
+        }
+
     }
 }

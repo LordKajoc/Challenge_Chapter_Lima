@@ -10,4 +10,10 @@
     <string name="tv_register">Daftar</string>
     <string name="tv_login">Masuk</string>
     <string name="tv_email">Email</string>
+    <string name="tv_profile">Profil</string>
+    <string name="tv_fullname">Nama Lengkap</string>
+    <string name="tv_tgl">Tanggal Lahir</string>
+    <string name="tv_address">Alamat</string>
+    <string name="tv_update">Perbaharui</string>
+    <string name="tv_logout">Keluar</string>
 </resources>

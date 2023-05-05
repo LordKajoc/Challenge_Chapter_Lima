@@ -9,14 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.lordkajoc.challenge_chapter_lima.R
 import com.lordkajoc.challenge_chapter_lima.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
     lateinit var binding: FragmentLoginBinding
-    lateinit var sharedLogin: SharedPreferences
-
+    //lateinit var sharedLogin: SharedPreferences
+    lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,29 +31,49 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedLogin = requireContext().getSharedPreferences("dataUser", Context.MODE_PRIVATE)
-
+        //sharedLogin = requireContext().getSharedPreferences("dataUser", Context.MODE_PRIVATE)
+        firebaseAuth = FirebaseAuth.getInstance()
         binding.tvBelumPunyaAkun.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
         binding.btnLogin.setOnClickListener {
-            var getDataUser = sharedLogin.getString("email", "")
-            var getDataPass = sharedLogin.getString("password", "")
-            var user = binding.etEmaillogin.text.toString()
+//            var getDataUser = sharedLogin.getString("email", "")
+//            var getDataPass = sharedLogin.getString("password", "")
+            var email = binding.etEmaillogin.text.toString()
             var pass = binding.etPasswordlogin.text.toString()
 
-
-            if (user.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT)
-                    .show()
-            } else if (user == getDataUser.toString() && pass == getDataPass.toString()) {
-
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-                Toast.makeText(context, "Login Berhasil", Toast.LENGTH_SHORT).show()
-            } else if (user != getDataUser.toString() || pass != getDataPass.toString()) {
-                Toast.makeText(context, "Email dan Pasword anda salah", Toast.LENGTH_SHORT).show()
+            if (email.isNotEmpty() && pass.isNotEmpty()){
+                    firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener{
+                        if (it.isSuccessful){
+                            Toast.makeText(context, "Login Berhasil", Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                        } else{
+                            Toast.makeText(context,it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }else{
+                Toast.makeText(context, "Kata Sandi Tidak Sesuai", Toast.LENGTH_SHORT).show()
             }
 
+//            if (email.isEmpty() || pass.isEmpty()) {
+//                Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT)
+//                    .show()
+//            } else if (email == getDataUser.toString() && pass == getDataPass.toString()) {
+//
+//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+//                Toast.makeText(context, "Login Berhasil", Toast.LENGTH_SHORT).show()
+//            } else if (email != getDataUser.toString() || pass != getDataPass.toString()) {
+//                Toast.makeText(context, "Email dan Pasword anda salah", Toast.LENGTH_SHORT).show()
+//            }
+
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if(firebaseAuth.currentUser != null){
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
     }
 
