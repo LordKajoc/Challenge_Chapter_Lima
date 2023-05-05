@@ -89,12 +89,8 @@
 
     <Button
         android:id="@+id/btnDaftar"
+        style="@style/btn"
         android:layout_width="380dp"
         android:layout_height="60dp"
-        android:layout_marginTop="100dp"
-        android:backgroundTint="@color/abu"
-        android:text="Daftar"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:text="@string/tv_register" />
 </LinearLayout>
