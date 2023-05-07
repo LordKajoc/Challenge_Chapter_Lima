@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tv_home">Halo bienvenido</string>
+    <string name="tv_name">Nombre</string>
+    <string name="tv_username" translatable="false">Username</string>
+    <string name="tv_pass">Contraseña</string>
+    <string name="tv_pass2">Volver a Contraseña</string>
+    <string name="tv_register">Registro</string>
+    <string name="tv_login">Acceso</string>
+    <string name="tv_email">Correo electrónico</string>
+    <string name="tv_profile">Perfil</string>
+    <string name="tv_fullname">Nombre completo</string>
+    <string name="tv_tgl">fecha de nacimiento</string>
+    <string name="tv_address">DIRECCIÓN</string>
+    <string name="tv_update">Actualizar</string>
+    <string name="tv_logout">Cerrar sesión</string>
+</resources>

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Challenge_Chapter_Lima</string>
+    <string name="app_name" translatable="false">Challenge_Chapter_Lima</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="tv_home">Hallo, Selamat Datang</string>
     <string name="tv_name">Nama</string>
     <string name="tv_username" translatable="false">Username</string>
