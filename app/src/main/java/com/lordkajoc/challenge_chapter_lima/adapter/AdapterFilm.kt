@@ -19,7 +19,7 @@ class AdapterFilm(var listFilm: List<PopularMovieItem>) :
             binding.cardView.setOnClickListener{
                 val bundle = Bundle()
                 bundle.putSerializable("BUNDEL", itemFilms)
-                Navigation.findNavController(itemView).navigate(R.id.action_homeFragment2_to_detailFragment2, bundle)
+                Navigation.findNavController(itemView).navigate(R.id.action_homeFragment_to_detailFragment, bundle)
             }
         }
     }
@@ -38,7 +38,7 @@ class AdapterFilm(var listFilm: List<PopularMovieItem>) :
         holder.itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("BUNDEL", listFilm[position])
-            Navigation.findNavController(it).navigate(R.id.action_homeFragment2_to_detailFragment2, bundle)
+            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_detailFragment, bundle)
         }
     }
 

@@ -59,8 +59,7 @@ class ProfileFragment : Fragment() {
             addUser.putString("tgl", getTglLahir)
             addUser.putString("alamat", getAlamat)
             addUser.apply()
-            firebaseAuth = FirebaseAuth.getInstance()
-            firebaseAuth.signOut()
+
             Toast.makeText(context, "Update Berhasil", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_profileFragment_to_homeFragment2)
         }

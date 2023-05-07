@@ -46,7 +46,7 @@ class LoginFragment : Fragment() {
                     firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener{
                         if (it.isSuccessful){
                             Toast.makeText(context, "Login Berhasil", Toast.LENGTH_SHORT).show()
-                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         } else{
                             Toast.makeText(context,it.exception.toString(), Toast.LENGTH_SHORT).show()
                         }
@@ -66,14 +66,6 @@ class LoginFragment : Fragment() {
 //                Toast.makeText(context, "Email dan Pasword anda salah", Toast.LENGTH_SHORT).show()
 //            }
 
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        if(firebaseAuth.currentUser != null){
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
     }
 

@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.lordkajoc.challenge_chapter_lima.R
 import com.lordkajoc.challenge_chapter_lima.adapter.AdapterFilm
 import com.lordkajoc.challenge_chapter_lima.databinding.FragmentHomeBinding
@@ -28,7 +29,7 @@ class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
     lateinit var sharedPreferences: SharedPreferences
-
+    lateinit var firebaseAuth:FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +52,11 @@ class HomeFragment : Fragment() {
 
         (activity as AppCompatActivity).setSupportActionBar(binding.tbHome)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+        if(firebaseAuth.currentUser == null){
+            findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+        }
+
         sharedPreferences = requireContext().getSharedPreferences("dataUser", Context.MODE_PRIVATE)
 
         var getUser = sharedPreferences.getString("user", "")
@@ -60,13 +66,8 @@ class HomeFragment : Fragment() {
             var addUser = sharedPreferences.edit()
             addUser.putString("user", getUser)
             addUser.apply()
-            findNavController().navigate(R.id.action_homeFragment2_to_profileFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
-
-    }
-
-    override fun onStart() {
-        super.onStart()
         val viewModelMovie = ViewModelProvider(this).get(ViewModelFIlmPopular::class.java)
         viewModelMovie.callTmdb()
         viewModelMovie.liveDataMovie.observe(viewLifecycleOwner, Observer {
@@ -76,5 +77,11 @@ class HomeFragment : Fragment() {
                 binding.rvListfilm.adapter = AdapterFilm(it)
             }
         })
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
     }
 }
