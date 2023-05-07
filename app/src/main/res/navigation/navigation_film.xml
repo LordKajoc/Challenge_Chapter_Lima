@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -46,4 +49,9 @@
             android:id="@+id/action_profileFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.lordkajoc.challenge_chapter_lima.fragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

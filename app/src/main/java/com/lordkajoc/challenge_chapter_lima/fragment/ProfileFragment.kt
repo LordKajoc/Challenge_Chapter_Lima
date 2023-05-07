@@ -36,7 +36,17 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sharedPreferences = requireContext().getSharedPreferences("dataUser", Context.MODE_PRIVATE)
+        var getUser = sharedPreferences.getString("user", "")
+        binding.etUsernameprofile.setText(getUser)
 
+        var getNama = sharedPreferences.getString("nama", "")
+        binding.etNameprofile.setText(getNama)
+
+        var getTgl = sharedPreferences.getString("tgl", "")
+        binding.etTgllahirprofile.setText(getTgl)
+
+        var getAlamat = sharedPreferences.getString("alamat", "")
+        binding.etAddressprofile.setText(getAlamat)
 
         binding.btnupdateprofile.setOnClickListener {
             var getUsername = binding.etUsernameprofile.text.toString()
@@ -45,6 +55,9 @@ class ProfileFragment : Fragment() {
             var getAlamat = binding.etAddressprofile.text.toString()
             var addUser = sharedPreferences.edit()
             addUser.putString("user", getUsername)
+            addUser.putString("nama", getNamaLengkap)
+            addUser.putString("tgl", getTglLahir)
+            addUser.putString("alamat", getAlamat)
             addUser.apply()
             firebaseAuth = FirebaseAuth.getInstance()
             firebaseAuth.signOut()
@@ -55,6 +68,11 @@ class ProfileFragment : Fragment() {
         binding.btnLogout.setOnClickListener {
             firebaseAuth = FirebaseAuth.getInstance()
             firebaseAuth.signOut()
+            var addUser = sharedPreferences.edit()
+            addUser.remove("nama")
+            addUser.remove("tgl")
+            addUser.remove("alamat")
+            addUser.commit()
             Toast.makeText(context, "Keluar Berhasil", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
