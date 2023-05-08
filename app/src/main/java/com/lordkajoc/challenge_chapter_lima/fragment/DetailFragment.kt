@@ -34,5 +34,10 @@ class DetailFragment : Fragment() {
         binding.tvSinopsisfilmdetail.text = """Overview:
             ${getfilm.overview}
         """.trimIndent()
+
+        //test crashlytics
+        binding.btnCrashdetail.setOnClickListener {
+                throw RuntimeException("Test Crash") // Force a crash
+        }
     }
 }
