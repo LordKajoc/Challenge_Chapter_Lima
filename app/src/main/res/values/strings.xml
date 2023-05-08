@@ -16,4 +16,5 @@
     <string name="tv_address">Alamat</string>
     <string name="tv_update">Perbaharui</string>
     <string name="tv_logout">Keluar</string>
+    <string name="tv_nothaveaccount">Belum Punya Akun?</string>
 </resources>

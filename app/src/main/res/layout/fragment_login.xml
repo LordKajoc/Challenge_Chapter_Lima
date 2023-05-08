@@ -70,7 +70,7 @@
         android:id="@+id/tvBelumPunyaAkun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum punya akun?"
+        android:text="@string/tv_nothaveaccount"
         android:textColor="@color/black" />
 
 </LinearLayout>

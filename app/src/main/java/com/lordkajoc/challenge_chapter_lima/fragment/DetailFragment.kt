@@ -30,7 +30,7 @@ class DetailFragment : Fragment() {
             .into(binding.ivFilmimagedetail)
         binding.tvNamafilmdetail.text = getfilm.title
         binding.tvReleasefilmdetail.text = "Release : ${getfilm.releaseDate}"
-        binding.tvPopularitydetail.text = "Rating : ${getfilm.popularity}"
+        binding.tvPopularitydetail.text = "Popularity : ${getfilm.popularity}"
         binding.tvSinopsisfilmdetail.text = """Overview:
             ${getfilm.overview}
         """.trimIndent()
