@@ -10,7 +10,7 @@ import com.lordkajoc.challenge_chapter_lima.R
 import com.lordkajoc.challenge_chapter_lima.databinding.ItemFilmBinding
 import com.lordkajoc.challenge_chapter_lima.model.PopularMovieItem
 
-class AdapterFilm(var listFilm: List<PopularMovieItem>) :
+class AdapterFilm(private var listFilm: List<PopularMovieItem>) :
     RecyclerView.Adapter<AdapterFilm.ViewHolder>() {
 
     class ViewHolder(var binding: ItemFilmBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -25,7 +25,7 @@ class AdapterFilm(var listFilm: List<PopularMovieItem>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = ItemFilmBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemFilmBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 

@@ -1,4 +1,4 @@
-package com.lordkajoc.challenge_chapter_5.network
+package com.lordkajoc.challenge_chapter_lima.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

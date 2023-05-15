@@ -1,7 +1,6 @@
-package com.lordkajoc.challenge_chapter_5.network
+package com.lordkajoc.challenge_chapter_lima.network
 
 
-import com.lordkajoc.challenge_chapter_lima.model.PopularMovieItem
 import com.lordkajoc.challenge_chapter_lima.model.PopularMovieResponse
 import retrofit2.Call
 import retrofit2.http.GET

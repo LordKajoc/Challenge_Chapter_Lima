@@ -1,10 +1,8 @@
 package com.lordkajoc.challenge_chapter_lima.viewmodel
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.lordkajoc.challenge_chapter_5.network.ApiClient
+import com.lordkajoc.challenge_chapter_lima.network.ApiClient
 import com.lordkajoc.challenge_chapter_lima.model.PopularMovieItem
 import com.lordkajoc.challenge_chapter_lima.model.PopularMovieResponse
 import retrofit2.Call

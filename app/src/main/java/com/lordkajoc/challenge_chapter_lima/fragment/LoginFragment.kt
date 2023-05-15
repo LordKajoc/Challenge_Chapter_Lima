@@ -1,13 +1,11 @@
 package com.lordkajoc.challenge_chapter_lima.fragment
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.lordkajoc.challenge_chapter_lima.R
@@ -15,13 +13,13 @@ import com.lordkajoc.challenge_chapter_lima.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
     //lateinit var sharedLogin: SharedPreferences
-    lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         binding = FragmentLoginBinding.inflate(inflater, container, false)
@@ -39,8 +37,8 @@ class LoginFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
 //            var getDataUser = sharedLogin.getString("email", "")
 //            var getDataPass = sharedLogin.getString("password", "")
-            var email = binding.etEmaillogin.text.toString()
-            var pass = binding.etPasswordlogin.text.toString()
+            val email = binding.etEmaillogin.text.toString()
+            val pass = binding.etPasswordlogin.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()){
                     firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener{
